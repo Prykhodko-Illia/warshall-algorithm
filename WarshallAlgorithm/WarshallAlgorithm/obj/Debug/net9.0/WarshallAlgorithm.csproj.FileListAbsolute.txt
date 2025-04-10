@@ -1,0 +1,15 @@
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\bin\Debug\net9.0\WarshallAlgorithm.exe
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\bin\Debug\net9.0\WarshallAlgorithm.deps.json
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\bin\Debug\net9.0\WarshallAlgorithm.runtimeconfig.json
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\bin\Debug\net9.0\WarshallAlgorithm.dll
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\bin\Debug\net9.0\WarshallAlgorithm.pdb
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.AssemblyInfoInputs.cache
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.AssemblyInfo.cs
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.csproj.CoreCompileInputs.cache
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.sourcelink.json
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.dll
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\refint\WarshallAlgorithm.dll
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.pdb
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\WarshallAlgorithm.genruntimeconfig.cache
+D:\Programs\C#_projects\warshall-algorithm\WarshallAlgorithm\WarshallAlgorithm\obj\Debug\net9.0\ref\WarshallAlgorithm.dll
