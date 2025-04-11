@@ -57,36 +57,4 @@ public class Graph
         }
         return adjacencyMatrix;
     }
-
-    public static int[,] WarshallAlgorithm(int[,] adjacencyMatrix)
-    {
-        int len = adjacencyMatrix.GetLength(0);
-        int[,] result = new int[len, len];
-
-        for (int i = 0; i < len; i++)
-        {
-            for (int j = 0; j < len; j++)
-            {
-                result[i, j] = adjacencyMatrix[i, j];
-            }
-        }
-        
-        for (int k = 0; k < len; k++)
-        {
-            for (int i = 0; i < len; i++)
-            {
-                for (int j = 0; j < len; j++)
-                {
-                    result[i, j] = (result[i, j] | (result[i, k] & result[k, j]));
-                }
-            }
-        }
-
-        for (int i = 0; i < len; i++)
-        {
-            result[i, i] = 1;
-        }
-        
-        return result;
-    }
 }
