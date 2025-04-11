@@ -33,76 +33,39 @@ public class Printer
 
         Console.WriteLine("——————————————————————————————————————————————");
     }
-    
-    public static void PrintResult(List<List<List<double>>> resultList, List<int> verticesCount,
+
+    public static void PrintResult(List<List<List<double>>> resultList, List<int> vertices,
         List<double> probabilityValue, uint reps)
     {
-        int colWidth = 12;
-
-        using (StreamWriter writer = new StreamWriter("results_output.txt"))
+        Console.WriteLine();
+        for (int i = 0; i < vertices.Count; i++)
         {
-            Console.WriteLine("---------RESULTS----------");
-            writer.WriteLine("---------RESULTS----------");
-
-            for (int i = 0; i < verticesCount.Count; i++)
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Vertex: {vertices[i]}");
+            Console.ResetColor();
+            
+            Console.WriteLine();
+            for (int j = 0; j < probabilityValue.Count; j++)
             {
-                string separator = "+" + new string('-', colWidth);
-                for (int k = 0; k < reps; k++)
-                    separator += "+" + new string('-', colWidth);
-                separator += "+";
-
-                Console.WriteLine(separator);
-                writer.WriteLine(separator);
-
-                string vertexLabel = $"Vertex: {verticesCount[i]}";
-                string vertexLine = "|" + "".PadRight(colWidth) + "|" + vertexLabel.PadRight(colWidth * (int)reps) + "    |";
-
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(vertexLine);
-                Console.ResetColor();
-                writer.WriteLine(vertexLine);
-
-                Console.WriteLine(separator);
-                writer.WriteLine(separator);
-
-                string header = "|" + "Prob".PadLeft(colWidth);
-                for (int k = 0; k < reps; k++)
-                    header += "|" + $"Res{k + 1}".PadLeft(colWidth);
-                header += "|";
-
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(header);
+                Console.WriteLine($"Probability: {probabilityValue[j]}");
                 Console.ResetColor();
-                writer.WriteLine(header);
-
-                Console.WriteLine(separator);
-                writer.WriteLine(separator);
-
-                for (int j = 0; j < probabilityValue.Count; j++)
+                
+                for (int k = 0; k < reps; k++)
                 {
-                    string probCol = "|" + probabilityValue[j].ToString("F2").PadLeft(colWidth);
-
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write(probCol);
-                    Console.ResetColor();
-                    writer.Write(probCol);
-
-                    string row = "";
-                    for (int k = 0; k < reps; k++)
-                        row += "|" + resultList[i][j][k].ToString("F4").PadLeft(colWidth);
-                    row += "|";
-
-                    Console.WriteLine(row);
-                    writer.WriteLine(row);
-
-                    Console.WriteLine(separator);
-                    writer.WriteLine(separator);
+                    Console.Write(resultList[i][j][k] + " ");
                 }
-
+                List<double> list = resultList[i][j];
+                double avg = Math.Round((list.Sum() - list.Min() - list.Max()) / (reps - 2), 4);
+                
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.Write("\n" + $"avg: {avg}");
+                Console.ResetColor();
+                
                 Console.WriteLine();
-                writer.WriteLine();
+                Console.WriteLine();
             }
+            Console.WriteLine("——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————");
         }
     }
-
 }
