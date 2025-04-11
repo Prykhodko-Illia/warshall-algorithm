@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WarshallAlgorithm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa7119575239baf2802e326b125c507aa7250b1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6d5828f62cb6c37bc783cfd55dfe7275fe27ef4")]
 [assembly: System.Reflection.AssemblyProductAttribute("WarshallAlgorithm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WarshallAlgorithm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

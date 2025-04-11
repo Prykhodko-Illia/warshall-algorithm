@@ -10,9 +10,10 @@ public class Printer
             {
                 Console.Write(matrix[i, j] + " ");
             }
+
             Console.WriteLine();
         }
-        
+
         Console.WriteLine("——————————————————————————————————————————————");
     }
 
@@ -21,78 +22,86 @@ public class Printer
         for (int i = 0; i < list.Length; i++)
         {
             Console.Write($"{i + 1}: ");
-            
+
             for (int j = 0; j < list[i].Count; j++)
             {
                 Console.Write(list[i][j] + " ");
             }
+
             Console.WriteLine();
         }
-        
+
         Console.WriteLine("——————————————————————————————————————————————");
     }
-
-    // public static void PrintResult(List<List<double>> resultList, List<int> verticesCount, List<double> probabilityValue)
-    // {   
-    //     Console.Write("       ");
-    //     foreach (var p in probabilityValue)
-    //     {
-    //         Console.Write(p + " | ");
-    //     }
-    //     Console.WriteLine();
-    //     Console.WriteLine();
-    //     
-    //     for (int i = 0; i < resultList.Count; i++)
-    //     {
-    //         Console.Write(verticesCount[i] + ":     ");
-    //         
-    //         for (int j = 0; j < resultList[i].Count; j++)
-    //         {
-    //             Console.Write(resultList[i][j] + " ");
-    //         }
-    //         Console.WriteLine();
-    //     }
-    // }
-    public static void PrintResult(List<List<double>> resultList, List<int> verticesCount, List<double> probabilityValue)
+    
+    public static void PrintResult(List<List<List<double>>> resultList, List<int> verticesCount,
+        List<double> probabilityValue, uint reps)
     {
-        const int columnWidth = 10;
-        string colDivider = "|";
-        string rowDivider = "+";
+        int colWidth = 12;
 
-        int totalColumns = probabilityValue.Count + 1;
-        string horizontalLine = "";
-
-        for (int i = 0; i < totalColumns; i++)
+        using (StreamWriter writer = new StreamWriter("results_output.txt"))
         {
-            horizontalLine += rowDivider + new string('-', columnWidth);
-        }
-        horizontalLine += rowDivider;
+            Console.WriteLine("---------RESULTS----------");
+            writer.WriteLine("---------RESULTS----------");
 
-        Console.WriteLine(horizontalLine);
-        Console.Write($"{colDivider}{new string(' ', columnWidth)}");
-        
-        Console.ForegroundColor = ConsoleColor.DarkCyan;
-        foreach (var p in probabilityValue)
-        {
-            Console.Write($"{colDivider}{p, columnWidth:F3}");
-        }
-        Console.ResetColor();
-        
-        Console.WriteLine(colDivider);
-        Console.WriteLine(horizontalLine);
-
-        for (int i = 0; i < resultList.Count; i++)
-        {   
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.Write($"{colDivider}{verticesCount[i], columnWidth}");
-            Console.ResetColor();
-            
-            for (int j = 0; j < resultList[i].Count; j++)
+            for (int i = 0; i < verticesCount.Count; i++)
             {
-                Console.Write($"{colDivider}{resultList[i][j], columnWidth:F3}");
+                string separator = "+" + new string('-', colWidth);
+                for (int k = 0; k < reps; k++)
+                    separator += "+" + new string('-', colWidth);
+                separator += "+";
+
+                Console.WriteLine(separator);
+                writer.WriteLine(separator);
+
+                string vertexLabel = $"Vertex: {verticesCount[i]}";
+                string vertexLine = "|" + "".PadRight(colWidth) + "|" + vertexLabel.PadRight(colWidth * (int)reps) + "    |";
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(vertexLine);
+                Console.ResetColor();
+                writer.WriteLine(vertexLine);
+
+                Console.WriteLine(separator);
+                writer.WriteLine(separator);
+
+                string header = "|" + "Prob".PadLeft(colWidth);
+                for (int k = 0; k < reps; k++)
+                    header += "|" + $"Res{k + 1}".PadLeft(colWidth);
+                header += "|";
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(header);
+                Console.ResetColor();
+                writer.WriteLine(header);
+
+                Console.WriteLine(separator);
+                writer.WriteLine(separator);
+
+                for (int j = 0; j < probabilityValue.Count; j++)
+                {
+                    string probCol = "|" + probabilityValue[j].ToString("F2").PadLeft(colWidth);
+
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write(probCol);
+                    Console.ResetColor();
+                    writer.Write(probCol);
+
+                    string row = "";
+                    for (int k = 0; k < reps; k++)
+                        row += "|" + resultList[i][j][k].ToString("F4").PadLeft(colWidth);
+                    row += "|";
+
+                    Console.WriteLine(row);
+                    writer.WriteLine(row);
+
+                    Console.WriteLine(separator);
+                    writer.WriteLine(separator);
+                }
+
+                Console.WriteLine();
+                writer.WriteLine();
             }
-            Console.WriteLine(colDivider);
-            Console.WriteLine(horizontalLine);
         }
     }
 
